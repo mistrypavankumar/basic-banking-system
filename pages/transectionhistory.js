@@ -1,16 +1,17 @@
 import Head from "next/head";
 import CustomTable from "../components/CustomTable";
 
-const viewusers = ({ result }) => {
+const transectionHistory = ({ result }) => {
   return (
     <>
-      <Head>MG Banking - users</Head>
+      <Head>MG Banking - transectionHistory</Head>
 
       <div className="banner__container" style={{ height: "60vh" }}>
         <div className="content tcontent" style={{ marginTop: "8rem" }}>
           <CustomTable
-            title="Send Money Anytime, To Anyone For Free"
-            data={result.users}
+            title="Transection History"
+            data={result.transections}
+            forTransfer={true}
           />
         </div>
       </div>
@@ -18,10 +19,10 @@ const viewusers = ({ result }) => {
   );
 };
 
-export default viewusers;
+export default transectionHistory;
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3000/api/bankingInfo`);
+  const res = await fetch(`http://localhost:3000/api/transection`);
   const result = await res.json();
 
   return {

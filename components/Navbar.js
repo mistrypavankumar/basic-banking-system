@@ -13,11 +13,8 @@ const Navbar = () => {
         <a className="menu__link" href="/viewusers">
           Send Money
         </a>
-        <a className="menu__link" href="/transectionHistory">
+        <a className="menu__link" href="/transectionhistory">
           Tansection History
-        </a>
-        <a className="menu__link" href="/contact">
-          Contact
         </a>
       </div>
     </nav>
