@@ -42,7 +42,7 @@ const transection = ({ data, users }) => {
   const createTransectionHistory = async () => {
     try {
       const res = await fetch(
-        "https://basic-banking-system-six.vercel.app/transection",
+        "https://basic-banking-system-six.vercel.app/api/transection",
         {
           method: "POST",
           headers: {
