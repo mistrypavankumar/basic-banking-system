@@ -22,7 +22,9 @@ const transectionHistory = ({ result }) => {
 export default transectionHistory;
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3000/api/transection`);
+  const res = await fetch(
+    `https://basic-banking-system-six.vercel.app/api/transection`
+  );
   const result = await res.json();
 
   return {
