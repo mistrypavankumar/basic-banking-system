@@ -41,14 +41,17 @@ const transection = ({ data, users }) => {
 
   const createTransectionHistory = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/transection", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(tHistory),
-      });
+      const res = await fetch(
+        "https://basic-banking-system-six.vercel.app/transection",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(tHistory),
+        }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +60,7 @@ const transection = ({ data, users }) => {
   const updateBalanceOfCurrentUser = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/bankingInfo/${data._id}`,
+        `https://basic-banking-system-six.vercel.app/api/bankingInfo/${data._id}`,
         {
           method: "PUT",
           headers: {
@@ -76,7 +79,7 @@ const transection = ({ data, users }) => {
     let userId = users[recevierId]._id;
     try {
       const res = await fetch(
-        `http://localhost:3000/api/bankingInfo/${userId}`,
+        `https://basic-banking-system-six.vercel.app/api/bankingInfo/${userId}`,
         {
           method: "PUT",
           headers: {
@@ -222,10 +225,14 @@ const transection = ({ data, users }) => {
 export default transection;
 
 export async function getServerSideProps({ query: { id } }) {
-  const res = await fetch(`http://localhost:3000/api/bankingInfo/${id}`);
+  const res = await fetch(
+    `https://basic-banking-system-six.vercel.app/api/bankingInfo/${id}`
+  );
   const { data } = await res.json();
 
-  const res1 = await fetch("http://localhost:3000/api/bankingInfo/");
+  const res1 = await fetch(
+    "https://basic-banking-system-six.vercel.app/api/bankingInfo/"
+  );
   const { users } = await res1.json();
   return {
     props: {

@@ -21,7 +21,9 @@ const viewusers = ({ result }) => {
 export default viewusers;
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3000/api/bankingInfo`);
+  const res = await fetch(
+    `https://basic-banking-system-six.vercel.app/api/bankingInfo`
+  );
   const result = await res.json();
 
   return {
